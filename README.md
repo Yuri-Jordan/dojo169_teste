@@ -24,8 +24,20 @@ public String digitar(String mensagem){
 }
 ```
 
-### 1° caso de teste
+### 1° caso de teste(tamanho da mensagem excede 255 caracteres)
+```java
+ digitar("Lorem ipsum dolor sit amet, consectetur iucunde sapienter. Proprium ceteras...") # Lança uma exceção
+```
 
+### 2° caso de teste(mensagem contem caracteres numéricos)
+```java
+ digitar("sk8") # Lança uma exceção
+```
+
+### 3° caso de teste
+```java
+ digitar("SEMPRE ACESSO O DOJOPUZZLES") return "77773367_7773302_222337777_777766606660366656667889999_9999555337777";
+```
 
 
 ## Como executar os testes 
