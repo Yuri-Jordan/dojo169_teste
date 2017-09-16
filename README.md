@@ -26,12 +26,14 @@ public String digitar(String mensagem){
 
 ### 1° caso de teste
 
+
+
 ## Como executar os testes 
 
-1.Crie um novo projeto
+1. Crie um novo projeto
 
-2.Adicione uma biblioteca JUnit V4.x, ao classpath dele
+2. Adicione uma biblioteca JUnit V4.x, ao classpath dele
 
-3.Para poder testar é preciso fazer a classe de teste compilar. Então crie a classe "TradutorAlfaNumerico" e implemente os casos de teste, o mais simples possível, até que passem.
+3. Para poder testar é preciso fazer a classe de teste compilar. Então crie a classe "TradutorAlfaNumerico" e implemente os casos de teste, o mais simples possível, até que passem.
 
-4.Como forma de ajuda, já existe uma implementação para os testes, porém melhore-a, refatorando etc...
+4. Como forma de ajuda, já existe uma implementação para os testes, porém melhore-a, refatorando etc...
