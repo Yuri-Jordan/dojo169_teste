@@ -1,7 +1,7 @@
 
-class MensagemMaiorQuePermitidoException extends RuntimeException{
+class MensagemInvalidaException extends RuntimeException{
     
-    public MensagemMaiorQuePermitidoException(String msg){
+    public MensagemInvalidaException(String msg){
         super(msg);
     }
 }

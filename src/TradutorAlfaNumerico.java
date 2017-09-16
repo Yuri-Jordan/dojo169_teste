@@ -2,52 +2,53 @@
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class TradutorAlfaNumerico {
-    
-    String mensagem = "";
-    String resultado = "";
-    
+
+    String mensagem;
     Map<String, String> mapeamento;
-    CharSequence seqNumerica;
-    
-    public TradutorAlfaNumerico(){
+
+    public TradutorAlfaNumerico() {
         mapeamento = new HashMap<>();
         inicializarHash();
-        
+        mensagem = "";
     }
-    
-    
+
     public boolean mensagemVazia() {
         return mensagem.isEmpty();
     }
 
     public String digitar(String texto) {
         
-        if(texto.length() > 255)
-            throw new MensagemMaiorQuePermitidoException("Tamanho da mensagem > 255 caracteres");
+        String resultado = "";
+        String temp = " ";
         
-        
-        else{
+        if (texto.length() > 255) {
+            throw new MensagemInvalidaException("Tamanho da mensagem > 255 caracteres");
+        } else {
+
             this.mensagem = texto;
             this.mensagem = this.mensagem.toUpperCase();
             
- 
-            
-            for(int i = 0; i < this.mensagem.length(); i++){
+            for (int i = 0; i < this.mensagem.length(); i++) {
                 
-                this.resultado += mapeamento.get(String.valueOf(mensagem.charAt(i)));
+                // Regex para se a mensagem possui um caracter numérico
+                if(mensagem.matches(".*\\d+.*"))
+                        throw new MensagemInvalidaException("A mensagem não pode conter número.");
+                
+                // Verifica se há repetição de referência de caracter
+                if(temp.charAt(0) == mapeamento.get(String.valueOf(mensagem.charAt(i))).charAt(0) )
+                    resultado += String.valueOf("_");
+                
+                resultado += mapeamento.get(String.valueOf(mensagem.charAt(i)));
+                temp = mapeamento.get(String.valueOf(mensagem.charAt(i)));
                 
             }
         }
-        
         return resultado;
-        
-       
     }
 
     private void inicializarHash() {
-        
+
         mapeamento.put("A", "2");
         mapeamento.put("B", "22");
         mapeamento.put("C", "222");
@@ -76,5 +77,5 @@ public class TradutorAlfaNumerico {
         mapeamento.put("Z", "9999");
         mapeamento.put(" ", "0");
     }
-    
+
 }

@@ -29,7 +29,7 @@ public class TradutorAlfaNumericoTest {
     }
     
     
-    @Test(expected = MensagemMaiorQuePermitidoException.class)
+    @Test(expected = MensagemInvalidaException.class)
     public void mensagemMaiorQuePermitido(){
         
         trad.digitar
@@ -50,26 +50,34 @@ public class TradutorAlfaNumericoTest {
         );
     }
     
-    @Test
+    @Test(expected = MensagemInvalidaException.class)
     public void isMensagemString(){
-        
-        
-        
+        trad.digitar(trad.digitar("55656"));
     }
     
     @Test
     public void mapearUmaLetra(){
-        assertEquals("2",trad.digitar("a"));
+        assertEquals("9", trad.digitar("w"));
     }
     
     @Test
     public void mapearDuasLetras(){
-        assertEquals("2333",trad.digitar("af"));
+        assertEquals("2333", trad.digitar("af"));
     }
     
     @Test
     public void mapearEspaco(){
         assertEquals("0", trad.digitar(" "));
+    }
+    
+    @Test
+    public void mapearRepeticaoReferenciaLetra(){
+        assertEquals("2_222", trad.digitar("AC"));
+    }
+    
+    @Test
+    public void testarUmaFrase(){
+        assertEquals("77773367_7773302_222337777_777766606660366656667889999_9999555337777", trad.digitar( "SEMPRE ACESSO O DOJOPUZZLES"));
     }
   
     
