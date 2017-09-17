@@ -31,7 +31,7 @@ public class TradutorAlfaNumerico {
             
             for (int i = 0; i < this.mensagem.length(); i++) {
                 
-                // Regex para se a mensagem possui um caracter numérico
+                // Regex para se a mensagem possuir caracteres numéricos
                 if(mensagem.matches(".*\\d+.*"))
                         throw new MensagemInvalidaException("A mensagem não pode conter número.");
                 
