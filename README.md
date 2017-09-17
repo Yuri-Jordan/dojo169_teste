@@ -17,6 +17,7 @@
 |mensagem|mensagem é do tipo String|"As arveres some nozes"|123456|
 |||" "|@!#|
 |||"AS ARVERES SOME NOZES"|\n \t|
+||qtdCaracteres(mensagem) <= 255|"AS ARVERES SOME NOZES"|qtdCaracteres(mensagem) > 255|
 
 ```java
 public String digitar(String mensagem){
